@@ -67,21 +67,21 @@ function Home() {
   };
 
   const projetos = [
-    {
-      title: "Site de Venda de Produtos",
-      description: "Uma plataforma de e-commerce completa",
-      tags: ["React", "MySQL", "Bootstrap"],
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000",
-      link: "/store"
-    },
-    {
-      title: "Sistema de Gestão",
-      description: "Sistema integrado para gestão empresarial",
-      tags: ["PHP", "MySQL", "Bootstrap"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
-      link: "#"
-    }
-  ];
+  {
+    title: "Bolt - Sistema de Gestão e Vendas",
+    description: "Projeto completo de gestão, vendas e relatórios, com painel administrativo moderno, cadastro de produtos, clientes, funcionários e relatórios dinâmicos.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind", "Dashboard"],
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1000",
+    link: "/bolt"
+  },
+  {
+    title: "Site de Venda de Produtos",
+    description: "Uma plataforma de e-commerce completa",
+    tags: ["React", "MySQL", "Bootstrap"],
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000",
+    link: "/store"
+  }
+];
 
   const skills = [
     { name: "Frontend", icon: <Globe size={32} />, items: ["HTML5", "CSS3", "JavaScript", "React"] },
@@ -335,7 +335,7 @@ function Home() {
                     </div>
                   </div>
                   <Link 
-                    to="/store"
+                    to={projeto.link}
                     className="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"
                   >
                     <span className="sr-only">Ver projeto</span>

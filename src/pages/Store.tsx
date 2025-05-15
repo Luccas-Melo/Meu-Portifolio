@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { CartProvider } from '../context/CartContext';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
@@ -11,7 +11,7 @@ import ProductDetail from '../components/products/ProductDetail';
 import CartSidebar from '../components/cart/CartSidebar';
 import { Category } from '../types';
 import { getFeaturedProducts, getProductById, getProductsByCategory } from '../store/data/products';
-import { Link } from 'react-router-dom';
+
 import './store.css';
 
 function Store() {
@@ -61,6 +61,8 @@ function Store() {
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
+
+
 
   return (
     <CartProvider>

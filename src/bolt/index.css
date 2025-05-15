@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .dark {
+    @apply bg-gray-900 text-white;
+  }
+  .light {
+    @apply bg-white text-gray-900;
+  }
+  body {
+    @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply flex items-center space-x-2 px-2 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white;
+  }
+}
+
+.bolt-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

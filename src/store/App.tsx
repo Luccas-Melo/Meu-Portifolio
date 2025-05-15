@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CartProvider } from './context/CartContext';
 import '../store/index.css';
 import Header from './components/layout/Header';
