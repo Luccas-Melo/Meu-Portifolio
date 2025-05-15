@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Seleção personalizada azul padrão */
+::selection {
+  background: #3B82F6;
+  color: #fff;
+}
+
+/* Card reutilizável igual à seção de Competências Comportamentais */
+.card-section {
+  @apply p-4 rounded-lg bg-white dark:bg-[#1A0B2E] border border-purple-500/20;
+}

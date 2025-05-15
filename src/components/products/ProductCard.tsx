@@ -10,9 +10,16 @@ interface ProductCardProps {
   onProductClick: (productId: number) => void;
 }
 
+const categoryLabels: Record<string, string> = {
+  electronics: 'Eletrônicos',
+  clothing: 'Roupas',
+  home: 'Casa',
+  accessories: 'Acessórios',
+};
+
 const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClick }) => {
   const { addToCart } = useCart();
-  const { id, name, price, originalPrice, image, rating, featured } = product;
+  const { id, name, price, originalPrice, image, rating, featured, category } = product;
   
   const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
   
@@ -34,7 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClick }) =>
         />
         {featured && (
           <Badge variant="success" className="absolute top-2 left-2">
-            Featured
+            Destaque
           </Badge>
         )}
         {discount > 0 && (
@@ -45,7 +52,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClick }) =>
       </div>
       
       <div className="p-4">
-        <h3 className="font-medium text-gray-900 text-lg mb-1 truncate">{name}</h3>
+        <div className="flex items-center gap-2 mb-1">
+  <h3 className="font-medium text-gray-900 text-lg truncate">{name}</h3>
+  {category && (
+    <Badge variant="outline" className="capitalize">
+      {categoryLabels[category] || category}
+    </Badge>
+  )}
+</div>
         
         <div className="flex items-center mb-2">
           <div className="flex items-center text-amber-500">
@@ -56,10 +70,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClick }) =>
         
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-lg font-bold text-gray-900">${price.toFixed(2)}</span>
+            <span className="text-lg font-bold text-gray-900">R${price.toFixed(2)}</span>
             {originalPrice && (
               <span className="ml-2 text-sm text-gray-500 line-through">
-                ${originalPrice.toFixed(2)}
+                R${originalPrice.toFixed(2)}
               </span>
             )}
           </div>
@@ -70,7 +84,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClick }) =>
             className="opacity-0 group-hover:opacity-100 transition-opacity"
           >
             <ShoppingCart className="w-4 h-4 mr-1" />
-            Add
+            Adicionar
           </Button>
         </div>
       </div>

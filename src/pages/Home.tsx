@@ -6,7 +6,7 @@ import InteractiveBg from '../components/InteractiveBg';
 function Home() {
   const [text, setText] = useState('');
   const [theme, setTheme] = useState('dark');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isBarraLateralOpen, setIsBarraLateralOpen] = useState(false);
   const fullText = "Transformando ideias em código";
 
   useEffect(() => {
@@ -62,11 +62,11 @@ function Home() {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(prev => !prev);
+  const toggleBarraLateral = () => {
+    setIsBarraLateralOpen(prev => !prev);
   };
 
-  const projects = [
+  const projetos = [
     {
       title: "Site de Venda de Produtos",
       description: "Uma plataforma de e-commerce completa",
@@ -86,55 +86,55 @@ function Home() {
   const skills = [
     { name: "Frontend", icon: <Globe size={32} />, items: ["HTML5", "CSS3", "JavaScript", "React"] },
     { name: "Backend", icon: <Code2 size={32} />, items: ["PHP", "Node.js", "Express"] },
-    { name: "Database", icon: <Database size={32} />, items: ["MySQL", "MongoDB", "PostgreSQL"] },
+    { name: "Banco de Dados", icon: <Database size={32} />, items: ["MySQL", "MongoDB", "PostgreSQL"] },
     { name: "Design", icon: <Palette size={32} />, items: ["UI/UX", "Figma", "Responsive Design"] }
   ];
 
   return (
     <>
-      {/* Theme Switch Button */}
-      <button onClick={toggleTheme} className="theme-switch">
+      {/* Botão de Troca de Tema */}
+      {/* <button onClick={toggleTheme} className="theme-switch">
         {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
-      </button>
+      </button> */}
 
-      {/* Menu Toggle Button */}
-      <button onClick={toggleSidebar} className="menu-button">
+      {/* Botão de Menu */}
+      <button onClick={toggleBarraLateral} className="menu-button">
         <Menu size={24} />
       </button>
 
-      {/* Sidebar */}
-      <aside className={`sidebar ${!isSidebarOpen ? 'sidebar-collapsed' : ''}`}>
+      {/* Barra Lateral */}
+      <aside className={`sidebar ${!isBarraLateralOpen ? 'sidebar-collapsed' : ''}`}>
         <div className="flex items-center gap-2 mb-12">
           <Terminal size={24} className="text-purple-500" />
-          <span className="font-bold">Lucas.Soares</span>
+          <span className="font-bold">Lucas Soares</span>
         </div>
         <nav className="space-y-2">
-          <a href="#home" className="nav-link" onClick={() => setIsSidebarOpen(false)}>
+          <a href="#home" className="nav-link" onClick={() => setIsBarraLateralOpen(false)}>
             <HomeIcon size={20} />
             <span>.home()</span>
           </a>
-          <a href="#about" className="nav-link" onClick={() => setIsSidebarOpen(false)}>
+          <a href="#about" className="nav-link" onClick={() => setIsBarraLateralOpen(false)}>
             <User size={20} />
             <span>.sobre()</span>
           </a>
-          <a href="#skills" className="nav-link" onClick={() => setIsSidebarOpen(false)}>
+          <a href="#skills" className="nav-link" onClick={() => setIsBarraLateralOpen(false)}>
             <Code2 size={20} />
             <span>.habilidades()</span>
           </a>
-          <a href="#projects" className="nav-link" onClick={() => setIsSidebarOpen(false)}>
+          <a href="#projetos" className="nav-link" onClick={() => setIsBarraLateralOpen(false)}>
             <Briefcase size={20} />
             <span>.projetos()</span>
           </a>
-          <a href="#contact" className="nav-link" onClick={() => setIsSidebarOpen(false)}>
+          <a href="#contact" className="nav-link" onClick={() => setIsBarraLateralOpen(false)}>
             <Phone size={20} />
             <span>.contato()</span>
           </a>
         </nav>
       </aside>
 
-      {/* Main Content */}
-      <main className={`main-content ${!isSidebarOpen ? 'main-content-expanded' : ''}`}>
-        {/* Hero Section */}
+      {/* Conteúdo Principal */}
+      <main className={`main-content ${!isBarraLateralOpen ? 'main-content-expanded' : ''}`}>
+        {/* Seção Hero */}
         <section id="home" className="min-h-screen pt-20 px-6 section-reveal bg-white dark:bg-[#11071F] relative overflow-hidden">
           <InteractiveBg />
           <div className="max-w-6xl mx-auto relative" style={{ zIndex: 2 }}>
@@ -167,7 +167,7 @@ function Home() {
           </div>
         </section>
 
-        {/* About Section */}
+        {/* Seção Sobre */}
         <section id="about" className="py-20 px-6 section-reveal bg-gray-50 dark:bg-[#11071F]">
           <div className="max-w-6xl mx-auto">
             <div className="terminal-line mb-12">
@@ -202,7 +202,7 @@ function Home() {
                 
                 <div className="mt-8">
                   <div className="p-4 rounded-lg bg-white dark:bg-[#1A0B2E] border border-purple-500/20">
-                    <h3 className="font-bold mb-2 text-purple-500">Soft Skills</h3>
+                    <h3 className="font-bold mb-2 text-purple-500">Competências Comportamentais</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2">
                         <ChevronRight size={16} className="text-purple-500" />
@@ -279,7 +279,7 @@ function Home() {
           </div>
         </section>
 
-        {/* Skills Section */}
+        {/* Seção de Habilidades */}
         <section id="skills" className="py-20 px-6 section-reveal bg-white dark:bg-[#11071F]">
           <div className="max-w-6xl mx-auto">
             <div className="terminal-line mb-12">
@@ -287,7 +287,7 @@ function Home() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {skills.map((skill, index) => (
-                <div key={index} className="project-card p-6 rounded-lg border">
+                <div key={index} className="projeto-card p-6 rounded-lg border border-purple-500/20 bg-white dark:bg-[#1A0B2E]">
                   <div className="skill-icon mb-4">
                     {skill.icon}
                   </div>
@@ -306,28 +306,28 @@ function Home() {
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="py-20 px-6 section-reveal bg-gray-50 dark:bg-[#11071F]">
+        {/* Seção de Projetos */}
+        <section id="projetos" className="py-20 px-6 section-reveal bg-gray-50 dark:bg-[#11071F]">
           <div className="max-w-6xl mx-auto">
             <div className="terminal-line mb-12">
               <span className="font-mono">developer.showProjects();</span>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
-              {projects.map((project, index) => (
-                <div key={index} className="project-card rounded-lg overflow-hidden border group relative">
+              {projetos.map((projeto, index) => (
+                <div key={index} className="projeto-card p-6 rounded-lg border border-purple-500/20 bg-white dark:bg-[#1A0B2E] group relative">
                   <img 
-                    src={project.image} 
-                    alt={project.title}
+                    src={projeto.image} 
+                    alt={projeto.title}
                     className="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                   />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2 flex items-center gap-2 font-mono">
-                      {project.title}
+                      {projeto.title}
                       <ExternalLink size={16} className="text-purple-400" />
                     </h3>
-                    <p className="text-zinc-400 mb-4">{project.description}</p>
+                    <p className="text-zinc-400 mb-4">{projeto.description}</p>
                     <div className="flex gap-2 flex-wrap">
-                      {project.tags.map((tag, tagIndex) => (
+                      {projeto.tags.map((tag, tagIndex) => (
                         <span key={tagIndex} className="px-3 py-1 bg-purple-500/10 rounded-full text-sm text-purple-300 font-mono">
                           {tag}
                         </span>
@@ -346,7 +346,7 @@ function Home() {
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* Seção de Contato */}
         <section id="contact" className="py-20 px-6 section-reveal bg-white dark:bg-[#11071F]">
           <div className="max-w-6xl mx-auto text-center">
             <div className="terminal-line justify-center mb-8">
@@ -379,7 +379,7 @@ function Home() {
           </div>
         </section>
 
-        {/* Footer */}
+        {/* Rodapé */}
         <footer className="py-8 px-6 border-t border-purple-500/20 bg-white dark:bg-[#11071F]">
           <div className="max-w-6xl mx-auto text-center text-zinc-400 font-mono">
             <p> {new Date().getFullYear()} Lucas Soares // Todos os direitos reservados</p>

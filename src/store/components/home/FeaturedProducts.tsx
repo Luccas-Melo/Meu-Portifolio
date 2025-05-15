@@ -12,7 +12,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products, onProduct
       <h2 className="text-2xl font-bold mb-8 text-purple-600">Destaques</h2>
       <div className="grid md:grid-cols-3 gap-8">
         {products.map(product => (
-          <div key={product.id} className="border rounded-lg overflow-hidden shadow hover:shadow-lg transition cursor-pointer" onClick={() => onProductClick(product.id)}>
+          <div key={product.id} className="card-section overflow-hidden hover:shadow-lg transition cursor-pointer" onClick={() => onProductClick(product.id)}>
             <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
             <div className="p-4">
               <h3 className="font-bold text-lg mb-2">{product.name}</h3>

@@ -10,6 +10,13 @@ interface ProductDetailProps {
   onBackClick: () => void;
 }
 
+const categoryLabels: Record<string, string> = {
+  electronics: 'Eletrônicos',
+  clothing: 'Roupas',
+  home: 'Casa',
+  accessories: 'Acessórios',
+};
+
 const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackClick }) => {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
@@ -40,7 +47,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackClick }) =
         className="m-4 inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
       >
         <ArrowLeft className="w-4 h-4 mr-1" />
-        Back to products
+        Voltar para produtos
       </button>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
@@ -60,7 +67,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackClick }) =
         <div>
           <div className="mb-2">
             <Badge variant="outline" className="capitalize">
-              {category}
+              {categoryLabels[category] || category}
             </Badge>
           </div>
           
@@ -73,15 +80,15 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackClick }) =
             </div>
             <span className="mx-2 text-gray-400">•</span>
             <span className="text-gray-600">
-              {stockCount > 10 ? 'In stock' : stockCount > 0 ? `Only ${stockCount} left` : 'Out of stock'}
+              {stockCount > 10 ? 'Em estoque' : stockCount > 0 ? `Apenas ${stockCount} restante(s)` : 'Fora de estoque'}
             </span>
           </div>
           
           <div className="mb-6">
-            <span className="text-3xl font-bold text-gray-900">${price.toFixed(2)}</span>
+            <span className="text-3xl font-bold text-gray-900">R${price.toFixed(2)}</span>
             {originalPrice && (
               <span className="ml-3 text-xl text-gray-500 line-through">
-                ${originalPrice.toFixed(2)}
+                R${originalPrice.toFixed(2)}
               </span>
             )}
           </div>
@@ -109,22 +116,22 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackClick }) =
             
             <Button onClick={handleAddToCart} disabled={stockCount === 0}>
               <ShoppingCart className="w-5 h-5 mr-2" />
-              Add to Cart
+              Adicionar ao Carrinho
             </Button>
           </div>
           
           <div className="border-t border-gray-200 pt-6 space-y-4">
             <div className="flex items-center text-gray-700">
               <Truck className="w-5 h-5 mr-3 text-gray-500" />
-              <span>Free shipping on orders over $75</span>
+              <span>Frete grátis em pedidos acima de R$ 75</span>
             </div>
             <div className="flex items-center text-gray-700">
               <RefreshCw className="w-5 h-5 mr-3 text-gray-500" />
-              <span>30-day easy returns</span>
+              <span>Devolução fácil em até 30 dias</span>
             </div>
             <div className="flex items-center text-gray-700">
               <Package className="w-5 h-5 mr-3 text-gray-500" />
-              <span>Secured packaging</span>
+              <span>Embalagem segura</span>
             </div>
           </div>
         </div>

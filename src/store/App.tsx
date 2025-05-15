@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CartProvider } from './context/CartContext';
-import './index.css';
+import '../store/index.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HeroSection from './components/home/HeroSection';
