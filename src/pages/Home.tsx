@@ -68,7 +68,7 @@ function Home() {
 
   const projetos = [
   {
-    title: "Bolt - Sistema de Gestão e Vendas",
+    title: "Sistema de Gestão e Vendas",
     description: "Projeto completo de gestão, vendas e relatórios, com painel administrativo moderno, cadastro de produtos, clientes, funcionários e relatórios dinâmicos.",
     tags: ["React", "TypeScript", "Vite", "Tailwind", "Dashboard"],
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1000",

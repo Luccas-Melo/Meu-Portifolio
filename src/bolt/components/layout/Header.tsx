@@ -1,11 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import { Sun, Moon, LogOut } from 'lucide-react';
 
 const Header: React.FC = () => {
+  const navigate = useNavigate();
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/bolt');
+  };
 
   return (
     <header className="bg-white dark:bg-gray-800 shadow-sm">
@@ -24,7 +31,7 @@ const Header: React.FC = () => {
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <button
-              onClick={logout}
+              onClick={handleLogout}
               className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
             >
               <LogOut size={20} />

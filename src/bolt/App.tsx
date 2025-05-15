@@ -9,22 +9,46 @@ import Employees from './pages/Employees';
 import Reports from './pages/Reports';
 import Settings from './pages/Settings';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
 
 function App() {
   return (
     <AuthProvider>
       <ThemeProvider>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/employees" element={<Employees />} />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
+        <Routes>
+          <Route path="" element={<Login />} />
+          <Route path="dashboard" element={
+            <Layout>
+              <Dashboard />
+            </Layout>
+          } />
+          <Route path="products" element={
+            <Layout>
+              <Products />
+            </Layout>
+          } />
+          <Route path="customers" element={
+            <Layout>
+              <Customers />
+            </Layout>
+          } />
+          <Route path="employees" element={
+            <Layout>
+              <Employees />
+            </Layout>
+          } />
+          <Route path="reports" element={
+            <Layout>
+              <Reports />
+            </Layout>
+          } />
+          <Route path="settings" element={
+            <Layout>
+              <Settings />
+            </Layout>
+          } />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </ThemeProvider>
     </AuthProvider>
   );

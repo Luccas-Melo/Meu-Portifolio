@@ -18,7 +18,7 @@ const Sidebar: React.FC = () => {
   };
 
   const menuItems = [
-    { path: '/bolt', icon: <LayoutDashboard size={20} />, label: 'Dashboard' },
+    { path: '/bolt/dashboard', icon: <LayoutDashboard size={20} />, label: 'Dashboard' },
     { path: '/bolt/products', icon: <Package size={20} />, label: 'Produtos' },
     { path: '/bolt/customers', icon: <Users size={20} />, label: 'Clientes' },
     { path: '/bolt/employees', icon: <UserCircle size={20} />, label: 'Funcionários' },
@@ -31,7 +31,7 @@ const Sidebar: React.FC = () => {
       <div className="flex flex-col flex-1 min-h-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
         <div className="flex items-center h-16 flex-shrink-0 px-4 bg-indigo-600 dark:bg-indigo-800">
           <Terminal className="h-8 w-8 text-white" />
-          <span className="ml-2 text-xl font-bold text-white">Bolt</span>
+          <span className="ml-2 text-xl font-bold text-white">Sistema</span>
         </div>
         <nav className="flex-1 px-2 py-4 space-y-1">
           {menuItems.map((item) => (

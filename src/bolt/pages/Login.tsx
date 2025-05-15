@@ -19,11 +19,12 @@ const Login: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Simulação de login para demonstração
+      await login(email, password);
+      // Pequeno atraso para mostrar o efeito de carregamento
       setTimeout(() => {
-        navigate('/bolt');
+        navigate('/bolt/dashboard');
         setIsLoading(false);
-      }, 1500);
+      }, 800);
     } catch (err) {
       setError('Email ou senha inválidos');
       setIsLoading(false);
@@ -41,7 +42,6 @@ const Login: React.FC = () => {
         <div>
           <div className="flex items-center">
             <Terminal className="h-8 w-8 mr-2" />
-            <h1 className="text-2xl font-bold">Bolt</h1>
           </div>
           <p className="mt-2 text-purple-200">Sistema de Gestão Completo</p>
         </div>
@@ -62,7 +62,7 @@ const Login: React.FC = () => {
         </div>
         
         <div className="text-sm text-purple-200">
-          &copy; {new Date().getFullYear()} Bolt. Todos os direitos reservados.
+          &copy; {new Date().getFullYear()} Lucas Soares. Todos os direitos reservados.
         </div>
       </div>
       
@@ -188,13 +188,22 @@ const Login: React.FC = () => {
             </div>
           </form>
           
-          <div className="mt-6 text-center">
+          <div className="mt-6 space-y-4 text-center">
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Não tem uma conta?{' '}
               <Link to="/bolt/register" className="font-medium text-purple-600 hover:text-purple-500 dark:text-purple-400">
                 Criar conta
               </Link>
             </p>
+            
+            <div className="pt-2 border-t border-gray-200 dark:border-gray-800">
+              <Link to="/" className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Voltar ao Portfólio
+              </Link>
+            </div>
           </div>
         </div>
       </div>
